@@ -10,20 +10,22 @@
     {
         "id": "28298f8c28526100",
         "type": "ui_group",
-        "name": "Hidrometro",
+        "name": "Estado Atual",
         "tab": "d65502b1.ee517",
         "order": 1,
         "disp": true,
-        "width": "6",
+        "width": 6,
         "collapse": false,
         "className": ""
     },
     {
         "id": "d65502b1.ee517",
         "type": "ui_tab",
-        "name": "Dashboard",
+        "name": "WVANTECH Tecnologia",
         "icon": "dashboard",
-        "order": 1
+        "order": 1,
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "50c7bf9351f05f20",
@@ -34,7 +36,8 @@
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "darkTheme": {
                 "default": "#097479",
@@ -112,14 +115,35 @@
             "sizes": {
                 "sx": 48,
                 "sy": 48,
-                "gx": 6,
-                "gy": 6,
+                "gx": 12,
+                "gy": 46,
                 "cx": 6,
                 "cy": 6,
                 "px": 0,
-                "py": 0
+                "py": 12
             }
         }
+    },
+    {
+        "id": "0efd87f499457de8",
+        "type": "ui_group",
+        "name": "Historico de Consumo",
+        "tab": "d65502b1.ee517",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "68ebd3cce0efb642",
+        "type": "ui_spacer",
+        "z": "51df9808e784f2b8",
+        "name": "spacer",
+        "group": "28298f8c28526100",
+        "order": 3,
+        "width": 6,
+        "height": 1
     },
     {
         "id": "b4deb2142ab1cd83",
@@ -146,7 +170,7 @@
         "name": "Sucess",
         "statusCode": "200",
         "headers": {},
-        "x": 580,
+        "x": 600,
         "y": 780,
         "wires": []
     },
@@ -171,7 +195,7 @@
         "type": "function",
         "z": "51df9808e784f2b8",
         "name": "Tratamento de dados",
-        "func": "let obj = msg.payload;\nmsg.request_data = obj\n// global.set(\"valve-id\", obj.id)\nif (obj.id == \"246f284a60e0\")\n{\n    global.set(\"valve-sample\", obj.data)\n}\n\nlet valve = global.get(\"valve-action\");\n\nmsg.payload = \"{\\\"valve\\\": \\\"\"+ valve +\"\\\"}\"\nreturn msg;",
+        "func": "let obj = msg.payload;\nmsg.request_data = obj\n// global.set(\"valve-id\", obj.id)\nif (obj.id == \"246f284a60e0\")\n{\n    global.set(\"valve-sample\", obj.data)\n    if (obj.valve_status)\n        msg.request_data.valve_status = \"Valvula aberta\";\n    else\n        msg.request_data.valve_status = \"Valvula Fechada\";\n}\n\nlet valve = global.get(\"valve-action\");\n\nmsg.payload = \"{\\\"valve\\\": \\\"\"+ valve +\"\\\"}\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -194,7 +218,7 @@
         "func": "",
         "outputs": 1,
         "noerr": 0,
-        "initialize": "global.set(\"valve-action\", \"close\");",
+        "initialize": "global.set(\"valve-action\", \"CLOSE\");",
         "finalize": "",
         "libs": [],
         "x": 80,
@@ -301,15 +325,15 @@
         "type": "ui_text",
         "z": "51df9808e784f2b8",
         "group": "28298f8c28526100",
-        "order": 1,
-        "width": "0",
-        "height": "0",
+        "order": 2,
+        "width": 6,
+        "height": 1,
         "name": "",
-        "label": "Ultima Leitura",
-        "format": "{{msg.payload}} m³",
+        "label": "Status da válvula",
+        "format": "{{msg.request_data.valve_status}}",
         "layout": "col-center",
         "className": "",
-        "x": 400,
+        "x": 410,
         "y": 900,
         "wires": []
     },
@@ -318,21 +342,21 @@
         "type": "ui_chart",
         "z": "51df9808e784f2b8",
         "name": "",
-        "group": "28298f8c28526100",
-        "order": 2,
-        "width": "0",
-        "height": "0",
+        "group": "0efd87f499457de8",
+        "order": 1,
+        "width": 6,
+        "height": 5,
         "label": "Histórico (m³/hora)",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
-        "dot": false,
+        "dot": true,
         "ymin": "",
         "ymax": "",
         "removeOlder": 1,
-        "removeOlderPoints": "",
+        "removeOlderPoints": "10",
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
@@ -363,11 +387,11 @@
         "z": "51df9808e784f2b8",
         "name": "",
         "group": "28298f8c28526100",
-        "order": 3,
+        "order": 4,
         "width": 3,
         "height": 1,
         "passthru": false,
-        "label": "Abrir",
+        "label": "Religação",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -377,7 +401,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 190,
+        "x": 200,
         "y": 1000,
         "wires": [
             [
@@ -391,11 +415,11 @@
         "z": "51df9808e784f2b8",
         "name": "",
         "group": "28298f8c28526100",
-        "order": 4,
+        "order": 5,
         "width": 3,
         "height": 1,
         "passthru": false,
-        "label": "Fechar",
+        "label": "Corte",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -405,7 +429,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 200,
+        "x": 190,
         "y": 1040,
         "wires": [
             [
@@ -501,10 +525,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1020,
+        "x": 1000,
         "y": 1120,
         "wires": []
     },
@@ -525,7 +550,8 @@
             [
                 "a48b48272a223892",
                 "ab6ca1e3016af79e",
-                "ad0ae05744bd38aa"
+                "ad0ae05744bd38aa",
+                "8e32aea5a2c5ad1b"
             ]
         ]
     },
@@ -566,5 +592,32 @@
                 "5d54626b2403840d"
             ]
         ]
+    },
+    {
+        "id": "8e32aea5a2c5ad1b",
+        "type": "ui_gauge",
+        "z": "51df9808e784f2b8",
+        "name": "",
+        "group": "28298f8c28526100",
+        "order": 1,
+        "width": 6,
+        "height": 3,
+        "gtype": "wave",
+        "title": "",
+        "label": "m³",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 370,
+        "y": 860,
+        "wires": []
     }
 ]
