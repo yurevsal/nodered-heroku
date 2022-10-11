@@ -1,6 +1,6 @@
 [
     {
-        "id": "51df9808e784f2b8",
+        "id": "3dd861c5ae53d1b7",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,147 +8,9 @@
         "env": []
     },
     {
-        "id": "28298f8c28526100",
-        "type": "ui_group",
-        "name": "Estado Atual",
-        "tab": "d65502b1.ee517",
-        "order": 1,
-        "disp": true,
-        "width": 6,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "d65502b1.ee517",
-        "type": "ui_tab",
-        "name": "WVANTECH Tecnologia",
-        "icon": "dashboard",
-        "order": 1,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "50c7bf9351f05f20",
-        "type": "ui_base",
-        "theme": {
-            "name": "theme-light",
-            "lightTheme": {
-                "default": "#0094CE",
-                "baseColor": "#0094CE",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": true,
-                "reset": false
-            },
-            "darkTheme": {
-                "default": "#097479",
-                "baseColor": "#097479",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
-            },
-            "customTheme": {
-                "name": "Untitled Theme 1",
-                "default": "#4B7930",
-                "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-            },
-            "themeState": {
-                "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
-                    "edited": false
-                },
-                "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
-                    "edited": false
-                },
-                "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "widget-textColor": {
-                    "value": "#111111",
-                    "edited": false
-                },
-                "widget-backgroundColor": {
-                    "value": "#0094ce",
-                    "edited": false
-                },
-                "widget-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-                }
-            },
-            "angularTheme": {
-                "primary": "indigo",
-                "accents": "blue",
-                "warn": "red",
-                "background": "grey",
-                "palette": "light"
-            }
-        },
-        "site": {
-            "name": "Node-RED Dashboard",
-            "hideToolbar": "false",
-            "allowSwipe": "false",
-            "lockMenu": "false",
-            "allowTempTheme": "true",
-            "dateFormat": "DD/MM/YYYY",
-            "sizes": {
-                "sx": 48,
-                "sy": 48,
-                "gx": 12,
-                "gy": 46,
-                "cx": 6,
-                "cy": 6,
-                "px": 0,
-                "py": 12
-            }
-        }
-    },
-    {
-        "id": "0efd87f499457de8",
-        "type": "ui_group",
-        "name": "Historico de Consumo",
-        "tab": "d65502b1.ee517",
-        "order": 2,
-        "disp": true,
-        "width": 6,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "68ebd3cce0efb642",
-        "type": "ui_spacer",
-        "z": "51df9808e784f2b8",
-        "name": "spacer",
-        "group": "28298f8c28526100",
-        "order": 3,
-        "width": 6,
-        "height": 1
-    },
-    {
-        "id": "b4deb2142ab1cd83",
+        "id": "dbed52f2ec626430",
         "type": "http in",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "",
         "url": "/api",
         "method": "post",
@@ -158,15 +20,15 @@
         "y": 780,
         "wires": [
             [
-                "560ba6aff264e4e8",
-                "ccc463ca7cf9fcaf"
+                "2f1e31a7d1021858",
+                "6a6e3ff13dd76f36"
             ]
         ]
     },
     {
-        "id": "ee04356e4898df0c",
+        "id": "90d08d5f43b9afd9",
         "type": "http response",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "Sucess",
         "statusCode": "200",
         "headers": {},
@@ -175,9 +37,9 @@
         "wires": []
     },
     {
-        "id": "560ba6aff264e4e8",
+        "id": "2f1e31a7d1021858",
         "type": "debug",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
@@ -191,9 +53,9 @@
         "wires": []
     },
     {
-        "id": "ccc463ca7cf9fcaf",
+        "id": "6a6e3ff13dd76f36",
         "type": "function",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "Tratamento de dados",
         "func": "let obj = msg.payload;\nmsg.request_data = obj\n// global.set(\"valve-id\", obj.id)\nif (obj.id == \"246f284a60e0\")\n{\n    global.set(\"valve-sample\", obj.data)\n    if (obj.valve_status)\n        msg.request_data.valve_status = \"Valvula aberta\";\n    else\n        msg.request_data.valve_status = \"Valvula Fechada\";\n}\n\nlet valve = global.get(\"valve-action\");\n\nmsg.payload = \"{\\\"valve\\\": \\\"\"+ valve +\"\\\"}\"\nreturn msg;",
         "outputs": 1,
@@ -205,15 +67,15 @@
         "y": 780,
         "wires": [
             [
-                "ee04356e4898df0c",
-                "c069409000514b43"
+                "90d08d5f43b9afd9",
+                "fb3ef67dbc1dc05d"
             ]
         ]
     },
     {
-        "id": "a09f33d162c19eae",
+        "id": "35ce45ededefac42",
         "type": "function",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "InitVars",
         "func": "",
         "outputs": 1,
@@ -228,9 +90,9 @@
         ]
     },
     {
-        "id": "1cdd57c827f2c774",
+        "id": "d3b7736eafe699a1",
         "type": "function",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "setValve",
         "func": "global.set(\"valve-action\", msg.payload);\nreturn msg;",
         "outputs": 1,
@@ -242,14 +104,14 @@
         "y": 620,
         "wires": [
             [
-                "b6f144a18e289694"
+                "93743b78f5e42b34"
             ]
         ]
     },
     {
-        "id": "3c8db046d366707e",
+        "id": "b5975111b13120f2",
         "type": "inject",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "",
         "props": [
             {
@@ -271,14 +133,14 @@
         "y": 580,
         "wires": [
             [
-                "1cdd57c827f2c774"
+                "d3b7736eafe699a1"
             ]
         ]
     },
     {
-        "id": "28e66dca21fa50ac",
+        "id": "577094038c5fb117",
         "type": "inject",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "",
         "props": [
             {
@@ -300,14 +162,14 @@
         "y": 680,
         "wires": [
             [
-                "1cdd57c827f2c774"
+                "d3b7736eafe699a1"
             ]
         ]
     },
     {
-        "id": "b6f144a18e289694",
+        "id": "93743b78f5e42b34",
         "type": "debug",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
@@ -321,9 +183,9 @@
         "wires": []
     },
     {
-        "id": "a48b48272a223892",
+        "id": "c31c5154baac1ca6",
         "type": "ui_text",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "group": "28298f8c28526100",
         "order": 2,
         "width": 6,
@@ -338,11 +200,11 @@
         "wires": []
     },
     {
-        "id": "ab6ca1e3016af79e",
+        "id": "4a924d5a0124f1a3",
         "type": "ui_chart",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "",
-        "group": "0efd87f499457de8",
+        "group": "e2707516a72e2b3b",
         "order": 1,
         "width": 6,
         "height": 5,
@@ -382,9 +244,9 @@
         ]
     },
     {
-        "id": "8567281e39bf9466",
+        "id": "64bc8ed8899ee3fb",
         "type": "ui_button",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "",
         "group": "28298f8c28526100",
         "order": 4,
@@ -405,14 +267,14 @@
         "y": 1000,
         "wires": [
             [
-                "640abd7d02bb9820"
+                "87cd2899a4da9b81"
             ]
         ]
     },
     {
-        "id": "b148419a82ea17ee",
+        "id": "3dd23b05ae8a25d3",
         "type": "ui_button",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "",
         "group": "28298f8c28526100",
         "order": 5,
@@ -433,14 +295,14 @@
         "y": 1040,
         "wires": [
             [
-                "640abd7d02bb9820"
+                "87cd2899a4da9b81"
             ]
         ]
     },
     {
-        "id": "14c26b4eed5c81ec",
+        "id": "255844438c72a9a3",
         "type": "ui_toast",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "position": "dialog",
         "displayTime": "3",
         "highlight": "",
@@ -456,15 +318,15 @@
         "y": 1120,
         "wires": [
             [
-                "f31babeff5a65eaf",
-                "ebfc174c90fafa0e"
+                "ab691a30a901af02",
+                "ec159481ae83d259"
             ]
         ]
     },
     {
-        "id": "ebfc174c90fafa0e",
+        "id": "ec159481ae83d259",
         "type": "debug",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "debug 4",
         "active": false,
         "tosidebar": true,
@@ -479,9 +341,9 @@
         "wires": []
     },
     {
-        "id": "640abd7d02bb9820",
+        "id": "87cd2899a4da9b81",
         "type": "function",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "Tratamento",
         "func": "let valve = msg.payload\nlet new_msg;\nif (valve == \"OPEN\")\n{\n    new_msg = \"Habilitar valvula?\";\n}\nelse\n{\n    new_msg = \"Desabilitar valvula?\";\n}\nmsg.valve_value = valve;\nmsg.payload = new_msg;\n\nreturn msg;",
         "outputs": 1,
@@ -493,14 +355,14 @@
         "y": 1120,
         "wires": [
             [
-                "14c26b4eed5c81ec"
+                "255844438c72a9a3"
             ]
         ]
     },
     {
-        "id": "f31babeff5a65eaf",
+        "id": "ab691a30a901af02",
         "type": "function",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "Acionamento",
         "func": "if(msg.payload == \"Ok\")\n{\n    let valve = msg.valve_value;\n    global.set(\"valve-action\", valve);\n}\nmsg.payload = global.get(\"valve-action\");\nreturn msg;",
         "outputs": 1,
@@ -512,14 +374,14 @@
         "y": 1120,
         "wires": [
             [
-                "2132472fe214e3ca"
+                "b808d9fd521f4efe"
             ]
         ]
     },
     {
-        "id": "2132472fe214e3ca",
+        "id": "b808d9fd521f4efe",
         "type": "debug",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "debug 5",
         "active": true,
         "tosidebar": true,
@@ -534,9 +396,9 @@
         "wires": []
     },
     {
-        "id": "c069409000514b43",
+        "id": "fb3ef67dbc1dc05d",
         "type": "function",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "function 2",
         "func": "let obj = msg.request_data\n\nif (obj.id == \"246f284a60e0\") {\n     msg.payload = obj.data\n}\n\nreturn msg;",
         "outputs": 1,
@@ -548,17 +410,17 @@
         "y": 900,
         "wires": [
             [
-                "a48b48272a223892",
-                "ab6ca1e3016af79e",
-                "ad0ae05744bd38aa",
-                "8e32aea5a2c5ad1b"
+                "c31c5154baac1ca6",
+                "4a924d5a0124f1a3",
+                "2d9525dc84fc74e3",
+                "7061bef50f26bacb"
             ]
         ]
     },
     {
-        "id": "5d54626b2403840d",
+        "id": "e87244d00e278bd0",
         "type": "ui_toast",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "position": "bottom left",
         "displayTime": "3",
         "highlight": "",
@@ -575,9 +437,9 @@
         "wires": []
     },
     {
-        "id": "ad0ae05744bd38aa",
+        "id": "2d9525dc84fc74e3",
         "type": "function",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "function 3",
         "func": "msg.payload = \"Dados Atualizados\"\nreturn msg;",
         "outputs": 1,
@@ -589,14 +451,14 @@
         "y": 980,
         "wires": [
             [
-                "5d54626b2403840d"
+                "e87244d00e278bd0"
             ]
         ]
     },
     {
-        "id": "8e32aea5a2c5ad1b",
+        "id": "7061bef50f26bacb",
         "type": "ui_gauge",
-        "z": "51df9808e784f2b8",
+        "z": "3dd861c5ae53d1b7",
         "name": "",
         "group": "28298f8c28526100",
         "order": 1,
@@ -619,5 +481,44 @@
         "x": 370,
         "y": 860,
         "wires": []
+    },
+    {
+        "id": "039f21242c0da6da",
+        "type": "ui_spacer",
+        "z": "3dd861c5ae53d1b7",
+        "name": "spacer",
+        "group": "28298f8c28526100",
+        "order": 3,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "28298f8c28526100",
+        "type": "ui_group",
+        "name": "Hidrometro",
+        "tab": "d65502b1.ee517",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e2707516a72e2b3b",
+        "type": "ui_group",
+        "name": "Historico de Consumo",
+        "tab": "d65502b1.ee517",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d65502b1.ee517",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1
     }
 ]
