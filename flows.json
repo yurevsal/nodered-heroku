@@ -385,7 +385,7 @@
         "passthru": false,
         "label": "Religação",
         "tooltip": "",
-        "color": "white",
+        "color": "aqua",
         "bgcolor": "#73DF88",
         "className": "",
         "icon": "lock_open",
