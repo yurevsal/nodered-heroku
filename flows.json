@@ -10,11 +10,11 @@
     {
         "id": "28298f8c28526100",
         "type": "ui_group",
-        "name": "Estado Atual",
+        "name": "Controle",
         "tab": "d65502b1.ee517",
         "order": 1,
         "disp": true,
-        "width": 6,
+        "width": "6",
         "collapse": false,
         "className": ""
     },
@@ -22,7 +22,7 @@
         "id": "d65502b1.ee517",
         "type": "ui_tab",
         "name": "WVANTECH Tecnologia",
-        "icon": "dashboard",
+        "icon": "personal_video",
         "order": 1,
         "disabled": false,
         "hidden": false
@@ -35,7 +35,7 @@
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "baseFont": "Century Gothic,CenturyGothic,AppleGothic,sans-serif",
                 "edited": true,
                 "reset": false
             },
@@ -94,23 +94,23 @@
                     "edited": false
                 },
                 "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                    "value": "Century Gothic,CenturyGothic,AppleGothic,sans-serif"
                 }
             },
             "angularTheme": {
-                "primary": "indigo",
+                "primary": "blue",
                 "accents": "blue",
                 "warn": "red",
                 "background": "grey",
-                "palette": "light"
+                "palette": "dark"
             }
         },
         "site": {
-            "name": "Node-RED Dashboard",
+            "name": "WVANTECH Tecnologia",
             "hideToolbar": "false",
             "allowSwipe": "false",
             "lockMenu": "false",
-            "allowTempTheme": "true",
+            "allowTempTheme": "none",
             "dateFormat": "DD/MM/YYYY",
             "sizes": {
                 "sx": 48,
@@ -119,7 +119,7 @@
                 "gy": 46,
                 "cx": 6,
                 "cy": 6,
-                "px": 0,
+                "px": 12,
                 "py": 12
             }
         }
@@ -136,16 +136,6 @@
         "className": ""
     },
     {
-        "id": "68ebd3cce0efb642",
-        "type": "ui_spacer",
-        "z": "51df9808e784f2b8",
-        "name": "spacer",
-        "group": "28298f8c28526100",
-        "order": 3,
-        "width": 6,
-        "height": 1
-    },
-    {
         "id": "b4deb2142ab1cd83",
         "type": "http in",
         "z": "51df9808e784f2b8",
@@ -159,8 +149,7 @@
         "wires": [
             [
                 "560ba6aff264e4e8",
-                "ccc463ca7cf9fcaf",
-                "94a889698db94910"
+                "ccc463ca7cf9fcaf"
             ]
         ]
     },
@@ -187,8 +176,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 360,
-        "y": 620,
+        "x": 340,
+        "y": 700,
         "wires": []
     },
     {
@@ -196,7 +185,7 @@
         "type": "function",
         "z": "51df9808e784f2b8",
         "name": "Tratamento de dados",
-        "func": "let obj = msg.payload;\nmsg.request_data = obj\n// global.set(\"valve-id\", obj.id)\nif (obj.id == \"246f284a60e0\")\n{\n    global.set(\"valve-sample\", obj.data)\n    if (obj.valve_status)\n        msg.request_data.valve_status = \"Valvula aberta\";\n    else\n        msg.request_data.valve_status = \"Valvula Fechada\";\n}\n\nlet valve = global.get(\"valve-action\");\n\nmsg.payload = \"{\\\"valve\\\": \\\"\"+ valve +\"\\\"}\"\nreturn msg;",
+        "func": "let obj = msg.payload;\nmsg.request_data = obj\n// global.set(\"valve-id\", obj.id)\nif (obj.id == \"246f284a60e0\")\n{\n    global.set(\"valve-sample\", obj.data)\n    if (obj.valve_status)\n        msg.request_data.valve_status = \"Aberta\";\n    else\n        msg.request_data.valve_status = \"Fechada\";\n}\n\nlet valve = global.get(\"valve-action\");\n\nmsg.payload = \"{\\\"valve\\\": \\\"\"+ valve +\"\\\"}\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -207,7 +196,9 @@
         "wires": [
             [
                 "ee04356e4898df0c",
-                "c069409000514b43"
+                "c069409000514b43",
+                "8446cb87816428ed",
+                "2cff5f92ef8db15e"
             ]
         ]
     },
@@ -240,7 +231,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 500,
+        "y": 620,
         "wires": [
             [
                 "b6f144a18e289694"
@@ -269,7 +260,7 @@
         "payload": "CLOSE",
         "payloadType": "str",
         "x": 130,
-        "y": 460,
+        "y": 580,
         "wires": [
             [
                 "1cdd57c827f2c774"
@@ -298,7 +289,7 @@
         "payload": "OPEN",
         "payloadType": "str",
         "x": 130,
-        "y": 560,
+        "y": 680,
         "wires": [
             [
                 "1cdd57c827f2c774"
@@ -318,7 +309,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 580,
-        "y": 500,
+        "y": 620,
         "wires": []
     },
     {
@@ -326,16 +317,16 @@
         "type": "ui_text",
         "z": "51df9808e784f2b8",
         "group": "28298f8c28526100",
-        "order": 2,
+        "order": 3,
         "width": 6,
         "height": 1,
         "name": "",
         "label": "Status da válvula",
         "format": "{{msg.request_data.valve_status}}",
-        "layout": "col-center",
-        "className": "",
-        "x": 410,
-        "y": 900,
+        "layout": "row-spread",
+        "className": "lock_open",
+        "x": 830,
+        "y": 920,
         "wires": []
     },
     {
@@ -376,8 +367,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 410,
-        "y": 940,
+        "x": 830,
+        "y": 960,
         "wires": [
             []
         ]
@@ -388,22 +379,22 @@
         "z": "51df9808e784f2b8",
         "name": "",
         "group": "28298f8c28526100",
-        "order": 4,
-        "width": 3,
+        "order": 7,
+        "width": 6,
         "height": 1,
         "passthru": false,
         "label": "Religação",
         "tooltip": "",
-        "color": "",
-        "bgcolor": "",
+        "color": "white",
+        "bgcolor": "#73DF88",
         "className": "",
-        "icon": "",
+        "icon": "lock_open",
         "payload": "OPEN",
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 200,
-        "y": 1000,
+        "x": 160,
+        "y": 1380,
         "wires": [
             [
                 "640abd7d02bb9820"
@@ -416,22 +407,22 @@
         "z": "51df9808e784f2b8",
         "name": "",
         "group": "28298f8c28526100",
-        "order": 5,
-        "width": 3,
+        "order": 8,
+        "width": 6,
         "height": 1,
         "passthru": false,
         "label": "Corte",
         "tooltip": "",
-        "color": "",
-        "bgcolor": "",
+        "color": "white",
+        "bgcolor": "#EB4646",
         "className": "",
-        "icon": "",
+        "icon": "lock",
         "payload": "CLOSE",
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 190,
-        "y": 1040,
+        "x": 150,
+        "y": 1420,
         "wires": [
             [
                 "640abd7d02bb9820"
@@ -453,8 +444,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 610,
-        "y": 1120,
+        "x": 570,
+        "y": 1380,
         "wires": [
             [
                 "f31babeff5a65eaf",
@@ -475,8 +466,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 820,
-        "y": 1220,
+        "x": 780,
+        "y": 1480,
         "wires": []
     },
     {
@@ -490,8 +481,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
-        "y": 1120,
+        "x": 350,
+        "y": 1380,
         "wires": [
             [
                 "14c26b4eed5c81ec"
@@ -509,8 +500,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
-        "y": 1120,
+        "x": 770,
+        "y": 1380,
         "wires": [
             [
                 "2132472fe214e3ca"
@@ -530,8 +521,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 1120,
+        "x": 960,
+        "y": 1380,
         "wires": []
     },
     {
@@ -545,14 +536,15 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 180,
-        "y": 900,
+        "x": 600,
+        "y": 920,
         "wires": [
             [
                 "a48b48272a223892",
                 "ab6ca1e3016af79e",
                 "ad0ae05744bd38aa",
-                "8e32aea5a2c5ad1b"
+                "8e32aea5a2c5ad1b",
+                "3f647b62a73a8290"
             ]
         ]
     },
@@ -571,8 +563,8 @@
         "className": "",
         "topic": "",
         "name": "sample notification",
-        "x": 590,
-        "y": 980,
+        "x": 1010,
+        "y": 1000,
         "wires": []
     },
     {
@@ -586,8 +578,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 980,
+        "x": 800,
+        "y": 1000,
         "wires": [
             [
                 "5d54626b2403840d"
@@ -600,13 +592,13 @@
         "z": "51df9808e784f2b8",
         "name": "",
         "group": "28298f8c28526100",
-        "order": 1,
-        "width": 6,
-        "height": 3,
+        "order": 5,
+        "width": 3,
+        "height": 5,
         "gtype": "wave",
-        "title": "",
+        "title": "Ultima amostra (m³)",
         "label": "m³",
-        "format": "{{value}}",
+        "format": "{{msg.payload}}",
         "min": 0,
         "max": "100",
         "colors": [
@@ -617,55 +609,125 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 370,
-        "y": 860,
+        "x": 840,
+        "y": 880,
         "wires": []
     },
     {
-        "id": "94a889698db94910",
-        "type": "http request",
+        "id": "8446cb87816428ed",
+        "type": "function",
         "z": "51df9808e784f2b8",
-        "name": "",
-        "method": "POST",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "https://newagent-dffd7.firebaseio.com/.json",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [
-            {
-                "keyType": "Content-Type",
-                "keyValue": "",
-                "valueType": "application/json",
-                "valueValue": ""
-            }
-        ],
-        "x": 370,
-        "y": 700,
+        "name": "function 4",
+        "func": "let obj = msg.request_data\n\nif (obj.id == \"246f284a60e0\") {\n     msg.payload = obj.batt\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 1080,
         "wires": [
             [
-                "9530737ec89bf7e1"
+                "e4809d9766e19643",
+                "984bc4ec4284d144"
             ]
         ]
     },
     {
-        "id": "9530737ec89bf7e1",
-        "type": "debug",
+        "id": "e4809d9766e19643",
+        "type": "ui_gauge",
         "z": "51df9808e784f2b8",
-        "name": "debug 6",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 560,
-        "y": 700,
+        "name": "",
+        "group": "28298f8c28526100",
+        "order": 6,
+        "width": 3,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Bateria (%)",
+        "label": "",
+        "format": "{{value}}%",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 810,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "984bc4ec4284d144",
+        "type": "ui_text",
+        "z": "51df9808e784f2b8",
+        "group": "28298f8c28526100",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Bateria",
+        "format": "{{msg.payload}}%",
+        "layout": "row-spread",
+        "className": "",
+        "x": 800,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "9c0114efb78c98ca",
+        "type": "ui_text",
+        "z": "51df9808e784f2b8",
+        "group": "28298f8c28526100",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Conexão",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 800,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "2cff5f92ef8db15e",
+        "type": "function",
+        "z": "51df9808e784f2b8",
+        "name": "function 5",
+        "func": "let obj = msg.request_data\n\nif (obj.id == \"246f284a60e0\") {\n     if (obj.wifi)\n          msg.payload = \"WiFi\";\n     else \n          msg.payload = \"GPRS\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 1140,
+        "wires": [
+            [
+                "9c0114efb78c98ca"
+            ]
+        ]
+    },
+    {
+        "id": "3f647b62a73a8290",
+        "type": "ui_text",
+        "z": "51df9808e784f2b8",
+        "group": "28298f8c28526100",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Ultima amostra",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 820,
+        "y": 840,
         "wires": []
     }
 ]
